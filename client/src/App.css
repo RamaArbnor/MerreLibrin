@@ -98,7 +98,7 @@
   background-color: rgba(92, 199, 92, 0.568)
 }
 
-html::-webkit-scrollbar {
+/* html::-webkit-scrollbar {
   width: 20px;
 }
       
@@ -116,7 +116,7 @@ background-image: url("https://i.ibb.co/q95CBdZ/train.png");
   background-position:center center;
   background-repeat: no-repeat;
   background-size: 35px;
-}
+} */
 
 .dhuro-btn {
   /* background-color: greenyellow; */
@@ -140,6 +140,11 @@ background-image: url("https://i.ibb.co/q95CBdZ/train.png");
 
 #card-body *{
   text-align: center;
+}
+
+.card:hover {
+
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
