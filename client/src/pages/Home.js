@@ -1,13 +1,13 @@
 // a react page called Home
 import '../App.css';
-import ReactTyped from "react-typed";
+import Typewriter from 'typewriter-effect';
 import React, { useEffect, useState } from "react";
 import Dhuro from "../components/Dhuro.js";
 import Kerko from "../components/Kerko.js";
 
 export default function Home() {
     const headlines = ["MerrLibrin", "Listo Librat Qe Deshiron Ti Dhurosh", "Gezo Nje Femije Me Librat Tuaj", "Ndihmoje Nje Prinder"]
-    const [state, setState] = useState('kerko');
+    const [state, setState] = useState('main');
 
 
     // useEffect(() => {
@@ -31,35 +31,38 @@ export default function Home() {
             {state == 'dhuro' && <Dhuro />}
             {state == 'kerko' && <Kerko />}
 
-            {state == 'main' && <main className=" container d-flex row">
+            {state == 'main' && <main id='main' className="container d-flex row">
                 {/* some text describing the webapp  */}
                 <div className="heading-container">
 
                     <h1 className=" text-center text-white mb-5" id="heading">MerrLibrin</h1>
                     {/* <p className=" text-center text-white mb-5 " id="headline">Listo Librat Qe Deshiron Ti Dhurosh</p> */}
 
-                    <ReactTyped
-                        className=" text-center text-white mb-5 "
-                        id="headline"
-                        strings={headlines}
-                        typeSpeed={40}
-                        backSpeed={50}
-                        loop
-                    />
+
+
+                    <Typewriter
+                    id="headline"
+                    style={{color: 'white'}}    
+                    options={{
+                        strings: headlines,
+                        autoStart: true,
+                        loop: true,
+                    }}/>
+
                 </div>
             
 
                 
-                <div className="container d-flex justify-content-center ">
+                <div id="cards-container" className="container d-flex">
                     <div className="card d-flex justify-content-center ">
-                                <div className="card-body">
+                                <div className="card-body" id="card-body">
                                     <h5 className="card-title">Kerko</h5>
                                     <p className="card-text">Kerko Librin Qe Te Mungon.</p>
                                     {/* <a href="#" className="btn btn-primary">Kerko</a> */}
                                     </div>
                             </div>
                         <div className="card d-flex justify-content-center">
-                            <div className="card-body">
+                            <div className="card-body" id="card-body">
                                 <h5 className="card-title">Dhuro</h5>
                                 <p className="card-text">Dhuro Librat per Dikon Ne Nevoj.</p>
                                 {/* <a href="#" className="btn btn-primary">Dhuro</a> */}

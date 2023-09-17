@@ -126,7 +126,7 @@ export default function Dhuro() {
             key={book.bookName}
             onClick={() => toggleBookSelection(book)}
           >
-            <div className="card-body">
+            <div className="card-body" id="card-body">
               <h5 className="card-title">{book.bookName}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{book.publisher}</h6>
               <p className="card-text">Klasa: {book.grade}</p>

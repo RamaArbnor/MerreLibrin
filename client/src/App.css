@@ -39,7 +39,7 @@
   backdrop-filter: blur(15px);
   width: 200px;
 
-  margin-right: 2rem;
+  margin: 2rem;
 }
 
 #heading {
@@ -54,6 +54,11 @@
 	/* -webkit-text-fill-color: black; */
 }
 
+.Typewriter {
+  color: white;
+  display: block;
+}
+
 #headline {
   font-size: 1.5rem;
   font-weight: 700;
@@ -65,7 +70,23 @@
   .heading-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5rem;
   }
+
+  #cards-container{
+    align-items: center;
+    justify-content: center;
+  }
+
+#main {
+  min-width: 100% !important;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
 
 .dhuro {
   flex-wrap: wrap;
@@ -110,6 +131,15 @@ background-image: url("https://i.ibb.co/q95CBdZ/train.png");
   padding: 5%;
   align-self: center;
   justify-content: center;
+}
+
+.card-body {
+  align-items: center;
+  justify-content: center;
+}
+
+#card-body *{
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
