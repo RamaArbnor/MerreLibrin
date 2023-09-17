@@ -43,7 +43,7 @@ export default function Dhuro() {
         setError('Mungon Emri ose Numri i Telefonit');
         return;
       }
-      axios.post('http://localhost:5000/add', {
+      axios.post('http://merre-librin-server.vercel.app/add', {
         name: name,
         phone: phone,
         books: selectedBooks

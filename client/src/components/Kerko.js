@@ -8,7 +8,7 @@ export default function Kerko() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://192.168.1.104:5000/entries')
+        axios.get('http://merre-librin-server.vercel.app/entries')
             .then((response) => {
                 setEntries(response.data);
                 console.log('success')
