@@ -54,14 +54,14 @@ export default function Home() {
 
                 
                 <div id="cards-container" className="container d-flex">
-                    <div className="card d-flex justify-content-center ">
+                    <div className="card d-flex justify-content-center " onClick={() => setState('kerko')}>
                                 <div className="card-body" id="card-body">
                                     <h5 className="card-title">Kerko</h5>
                                     <p className="card-text">Kerko Librin Qe Te Mungon.</p>
                                     {/* <a href="#" className="btn btn-primary">Kerko</a> */}
                                     </div>
                             </div>
-                        <div className="card d-flex justify-content-center">
+                        <div className="card d-flex justify-content-center" onClick={() => setState('dhuro')}>
                             <div className="card-body" id="card-body">
                                 <h5 className="card-title">Dhuro</h5>
                                 <p className="card-text">Dhuro Librat per Dikon Ne Nevoj.</p>
