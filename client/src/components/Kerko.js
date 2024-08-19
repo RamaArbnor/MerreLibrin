@@ -1,58 +1,67 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 
 export default function Kerko() {
-
     const [entries, setEntries] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         axios.get('https://merre-librin-server.vercel.app/entries')
             .then((response) => {
                 setEntries(response.data);
-                console.log('success')
                 setIsLoading(false);
             })
             .catch((error) => {
-                console.log(error);
-            })
-    }, [])
+                console.error(error);
+            });
+    }, []);
+
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value.toLowerCase());
+    };
+
+    const filteredEntries = entries.filter(entry =>
+        entry.books.some(book => book.bookName.toLowerCase().includes(searchTerm))
+    );
 
     return (
-      <div className='container d-flex kerko'>
+        <div className="container-kerko">
+            <input
+                type="text"
+                placeholder="Kerko me emer librin..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="search-input"
+            />
 
-      {isLoading && <Spinner animation="border" role="status"  variant="success"/>}
-
-      {entries.map((entry) => {
-        return (
-          <div
-            className={`card p-3 m-2 col-1`}
-            id='kerko-card'
-            key={entry._id}
-
-          >
-            <div className="card-body">
-              <h5 className="card-title">{entry.name}</h5>
-              <p className="card-text">{entry.phone}</p>
-              {/* <p className="card-text">{entry.books}</p> */}
-              
-                {entry.books.map((book) => {
-                  return (
-                    <div style={{marginBottom: '.5rem'}}>
-                      <li>{book.bookName}</li>
-                      <small>{book.publisher}</small>
-                    </div>
-                  )
-                })}
-              
-            </div>  
-          
-          
-          </div>
-        )
-      })}
-      </div>
-
-    )
+            {isLoading ? (
+                <div className="spinner-container">
+                    <div className="spinner"></div>
+                </div>
+            ) : (
+                <div className="entries">
+                    {filteredEntries.map((entry, index) => (
+                        <div className="entry" key={index}>
+                            <h2>{entry.name}</h2>
+                            <p>Phone: {entry.phone}</p>
+                            <h3>Books:</h3>
+                            {entry.books.length > 0 ? (
+                                <ul>
+                                    {entry.books.map((book, bookIndex) => (
+                                        <li key={bookIndex}>
+                                            <strong>{book.bookName}</strong> - {book.publisher}
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p>No books listed.</p>
+                            )}
+                            {/* <button>View More</button> */}
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
 }
