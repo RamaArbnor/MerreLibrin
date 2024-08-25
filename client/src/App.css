@@ -200,6 +200,16 @@ background-image: url("https://i.ibb.co/q95CBdZ/train.png");
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1em;
+  max-height: 3rem;
+}
+
+.entries {
+  text-align: center;
+}
+
+.entries h1 {
+  color: white;
+  margin-bottom: 20px;
 }
 
 /* Spinner styling */
